@@ -26,7 +26,7 @@ def main():
     radio.on()
 
     while True:
-        sleep(100)
+        sleep(10)
         if button_a.is_pressed() and button_b.is_pressed():
             radio.send('both')
             display.show('b', wait=False, loop=False)
@@ -38,6 +38,6 @@ def main():
             display.show('r', wait=False, loop=False)
         else:
             radio.send('stop')
-            display.show('s', wait=False, loop=False)
+            display.show(str(channel), wait=False, loop=True)
 
 main()

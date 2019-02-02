@@ -72,13 +72,13 @@ def main():
     radio.on()
 
     while True:
-        sleep(100)
+        sleep(10)
         try:
             incoming = radio.receive()
         except:
             pass
         display.show(str(incoming), wait=False, loop=False)
-        if incoming == 'stop':
+        if incoming == 'stop' or incoming is None:
             set_motor_speeds(0.0,0.0)
         elif incoming == 'left':
             set_motor_speeds(1.0,-1.0)
